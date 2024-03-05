@@ -1,0 +1,34 @@
+<!-- templates/def.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="{{ url_for('static', filename='RD.png') }}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dictionary</title>
+    </head>
+    <style>
+        .wordmiddle {
+            width: 50%;
+            position: relative;
+            left: 12.5%;
+            text-align: left;
+        }
+
+        .meaningmiddle {
+            width: 50%;
+            position: relative;
+            left: 15%;
+            text-align: left;
+        }
+    </style>
+
+    <body>
+        <h1 class="wordmiddle" style="font-size:80px">{{ word }}</h1>
+            {% for items in meanings %}
+                <p class="wordmiddle">{{ word_types[loop.index0] }}</p>
+                {% for elements in items %}
+                    <p class="meaningmiddle">{{ elements }}</p>
+                {% endfor %}
+            {% endfor %}
+    </body>
+</html>

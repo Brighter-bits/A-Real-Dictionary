@@ -1,0 +1,87 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="{{ url_for('static', filename='RD.png') }}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dictionary</title>
+    </head>
+    <style>
+        .round {
+            border-radius: 10px;
+            padding: 10px 10px 10px -100px;
+            position: relative;
+            top: 10px;
+            left: 25%;
+            width: 50%;
+            height:50%;
+        }
+
+        .round::after{
+            content: '.';
+            opacity: 0;
+        }
+
+        .bin {
+            width: 1%;
+            height: 1%;
+            left: 99%;
+            position: relative;
+        }
+
+        .black{
+            border: 1px #000 solid;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            
+        }
+        .white{
+            border: 1px #fff solid;
+            outline: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+        .middle {
+            width: 50%;
+            position: relative;
+            left: 25%;
+            text-align: center;
+        }
+
+        .hiddenword {
+            display: none;
+        }
+
+    </style>
+    <body>
+        <h1 style="font-size:60px" class="middle">This is a Real Dictionary</h1>
+        <h2 style="font-size:60px;" class="middle">Instantly Search For The Definition of Thousands of Words</h2>
+        <div id="output_container" class="round black" style="font-size:60px; font:arial">Search...</div>
+        <form action="{{ url_for('User_Search') }}" method="post">
+            <input spellcheck="off" autocomplete="off" type="text" id="input_word" class="bin white" name="input_word" style="font-size:60px;"><br>
+        </form>
+    
+    </body>
+
+    <script>
+        document.getElementById('input_word').addEventListener('input', function() {
+            let output_container = document.getElementById('output_container');
+            let input_word = document.getElementById('input_word');
+            output_container.classList.remove("hiddenword");
+            let input = input_word.value;
+            let symbol = '%';
+            let start_index = input.indexOf(symbol);
+            if (start_index !== -1) {
+                const visiblePart = input.substring(0, start_index);
+                const hiddenPart = input.substring(start_index + symbol.length);
+                output_container.innerHTML = visiblePart + '<span class="hiddenword">' + hiddenPart + '</span>';
+            } else{
+                output_container.innerHTML = input;
+            }
+        });
+
+        document.getElementById("output_container").addEventListener('click', function() {
+            document.getElementById("input_word").focus();
+        })
+    </script>
+</html>
