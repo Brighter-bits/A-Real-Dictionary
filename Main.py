@@ -11,7 +11,7 @@ except:print("No File")
 
 @app.route('/')
 def template():
-    return render_template("index.html") # Start off by going to the index page
+    return render_template("index.html", exist=True) # Start off by going to the index page
 
 @app.route('/User_Search', methods=['POST']) # When the user_search action is taken
 def User_Search():
@@ -29,12 +29,12 @@ def User_Search():
         definition = dictionary.meaning("en", word, DICT_WORDNET) # Get the definitions from wordnet
         print(definition)
         word_types = str(definition.keys()).replace("dict_keys(", "") # Get the keys and then get rid of the starting words
-        word_types = re.sub(r'[^\w|,]', "", word_types).split(",") # Get rid of the rest of the unneeded bits and then split by comma to make a list
+        word_types = re.sub(r'[^\w|,;]', "", word_types).split(",") # Get rid of the rest of the unneeded bits and then split by comma to make a list
         meanings = []
         for i in range(len(word_types)): # For every word type
             meanings.append(definition.get(word_types[i])) # Get all the definitions of one word type (e.g all the noun variations of a word)
             for j in range(len(meanings[i])): # For every definition of that word type
-                meanings[i][j] = re.sub(r'[^\w|, ]', "", meanings[i][j]) # Get rid of any unecessary parts
+                meanings[i][j] = re.sub(r'[^\w|,; ]', "", meanings[i][j]) # Get rid of any unecessary parts
                 if word_types[i] == "Verb":
                     meanings[i][j] = "To " + meanings[i][j] # Gramatically correct the verb definitions
             meanings[i] = list(map(lambda s: s.capitalize(), meanings[i])) # Make the definitions look like proper sentences
@@ -46,6 +46,6 @@ def User_Search():
         print(meanings)
         return render_template("def.html", word=word, meanings=meanings, word_types=word_types) # Go to the definitions page
     except:
-        return "Oh Shit" # "Oh Shit" indeed.
+        return render_template("index.html", exist=False)
 
 app.run(debug=True, port=8364)

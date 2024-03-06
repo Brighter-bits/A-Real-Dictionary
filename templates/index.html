@@ -16,7 +16,7 @@
             width: 50%;
             height:50%;
         }
-
+        
         .round::after{
             content: '.';
             opacity: 0;
@@ -60,7 +60,9 @@
         <form action="{{ url_for('User_Search') }}" method="post">
             <input spellcheck="off" autocomplete="off" type="text" id="input_word" class="bin white" name="input_word" style="font-size:60px;"><br>
         </form>
-    
+        {% if exist == False %}
+            <p3 class="middle" style="left: 38.5%; color: red">Hey! That's not a real word, are you sure you spelt it correctly? {{exist}}</p3>
+        {% endif %}
     </body>
 
     <script>
