@@ -43,6 +43,8 @@ def User_Search():
                     meanings[0].insert(1, names[name]) # Add the modifiers to the first word type (usually nouns)
                 except:
                     meanings[0].insert(1, "You")
+            else:
+                word = word.lower()
         print(meanings)
         return render_template("def.html", word=word, meanings=meanings, word_types=word_types) # Go to the definitions page
     except:
