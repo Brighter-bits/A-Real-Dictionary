@@ -6,7 +6,7 @@ dictionary = MultiDictionary()
 app = Flask("DictRD")
 try:
     with open("words.json", "r") as f:
-        names = json.load(f)
+        names = json.load(f) # Names or other definitions should be layed out as a JSON e.g {"W":"Waluigi", "BF": "A word used by Idiots"}
 except:print("No File")
 
 @app.route('/')
@@ -46,6 +46,6 @@ def User_Search():
         print(meanings)
         return render_template("def.html", word=word, meanings=meanings, word_types=word_types) # Go to the definitions page
     except:
-        return render_template("index.html", exist=False)
+        return render_template("index.html", exist=False) # Reload the page with the error message
 
 app.run(debug=True, port=8364)

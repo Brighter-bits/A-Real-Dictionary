@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" href="{{ url_for('static', filename='RD.png') }}"/>
+        <link rel="icon" href="{{ url_for('static', filename='RD.png') }}"/> <!-- Place the png in static into the Favicon --> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dictionary</title>
     </head>
@@ -61,7 +61,7 @@
             <input spellcheck="off" autocomplete="off" type="text" id="input_word" class="bin white" name="input_word" style="font-size:60px;"><br>
         </form>
         {% if exist == False %}
-            <p3 class="middle" style="left: 38.5%; color: red">Hey! That's not a real word, are you sure you spelt it correctly? {{exist}}</p3>
+            <p3 class="middle" style="left: 38.5%; color: red">Hey! That's not a real word, are you sure you spelt it correctly?</p3> <!-- This appears if the previously entered word was not found in the dictionary -->
         {% endif %}
     </body>
 
