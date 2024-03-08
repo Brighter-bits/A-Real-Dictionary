@@ -6,6 +6,7 @@ Currently the only method to use this webapp is by cloning the repo
 
 ## Cloning the repo
 Clone the repo using git or just download the source code.
+Then run:
 ```
 pip install -r {path to requirements.txt}
 ```
