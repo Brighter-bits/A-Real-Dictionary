@@ -20,9 +20,22 @@
             left: 15%;
             text-align: left;
         }
+
+        .button{
+            position: relative;
+            padding: 20px 20px;
+            background-image: url("{{ url_for('static', filename='Home-icon.png') }}");
+            background-size: cover;
+            background-position: center; 
+            text-align: center;
+            color: transparent;
+        }
     </style>
 
     <body>
+        <form action="{{ url_for('Home') }}" method="post">
+           <button class="button"></button>
+        </form>
         <h1 class="wordmiddle" style="font-size:80px">{{ word }}</h1>
             {% for items in meanings %}
                 <p class="wordmiddle">{{ word_types[loop.index0] }}</p>

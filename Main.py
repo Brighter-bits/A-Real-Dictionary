@@ -50,4 +50,9 @@ def User_Search():
     except:
         return render_template("index.html", exist=False) # Reload the page with the error message
 
+@app.route("/Home", methods=['POST'])
+def Home():
+    return render_template("index.html", exist=True)
+
+
 app.run(debug=True, port=8364)
