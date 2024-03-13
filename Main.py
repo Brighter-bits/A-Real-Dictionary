@@ -25,6 +25,7 @@ def User_Search():
         print(name)
         print(halves)
         Special = True
+    word = re.sub(r'[^A-Za-z0-9]', "", word)
     try:
         definition = dictionary.meaning("en", word, DICT_WORDNET) # Get the definitions from wordnet
         print(definition)
