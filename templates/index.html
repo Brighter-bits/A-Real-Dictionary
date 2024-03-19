@@ -52,6 +52,14 @@
             display: none;
         }
 
+        .rectangle{
+            background-color: blue;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
     </style>
     <body>
         <h1 style="font-size:60px" class="middle">This is a Real Dictionary</h1>
@@ -63,6 +71,8 @@
         {% if exist == False %}
             <p3 class="middle" style="left: 38.5%; color: red">Hey! That's not a real word, are you sure you spelt it correctly?</p3> <!-- This appears if the previously entered word was not found in the dictionary -->
         {% endif %}
+        <div class="rectangle" style="width: 15vw;"></div>
+        <div class="rectangle" style="width: 15vw; left:85%;"></div>
     </body>
 
     <script>

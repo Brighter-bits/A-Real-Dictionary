@@ -30,9 +30,19 @@
             text-align: center;
             color: transparent;
         }
+
+        .rectangle{
+            background-color: blue;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
     </style>
 
     <body>
+        <div class="rectangle" style="width: 4vw"></div>
+        <div class="rectangle" style="width: 35vw; left: 65%"></div>
         <form action="{{ url_for('Home') }}" method="post">
            <button class="button"></button>
         </form>
