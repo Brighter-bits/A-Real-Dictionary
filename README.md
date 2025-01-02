@@ -106,6 +106,6 @@ Adjective
 # Notes
 - You cannot yet use images
 - You can only have one extra definition at a time
-- This project is largely possible due to both [Flask](https://github.com/pallets/flask/) for the webapp and [PyMultiDictionary](https://github.com/ppizarror/PyMultiDictionary) for all the actual dictionary definitions
+- This project is largely possible due to both [Flask](https://github.com/pallets/flask/) for the webapp and [The Python Natural Language ToolKit](https://github.com/nltk/nltk) for all the actual dictionary definitions.
 - The actual website doesn't look very good
 - Definition Keywords are case sensitive
