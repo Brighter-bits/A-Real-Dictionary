@@ -13,7 +13,7 @@ except:print("No File")
 
 @app.route('/')
 def template():
-    return render_template("templates/index.html", exist=True) # Start off by going to the index page
+    return render_template("index.html", exist=True) # Start off by going to the index page
 
 @app.route('/User_Search', methods=['POST']) # When the user_search action is taken
 def User_Search():
@@ -83,18 +83,18 @@ def User_Search():
                 except:
                     meanings[0].insert(1, "You")
         print(meanings)
-        return render_template("templates/def.html", word=word, meanings=meanings, word_types=word_types) # Go to the definitions page
+        return render_template("def.html", word=word, meanings=meanings, word_types=word_types) # Go to the definitions page
     except:
-        return render_template("templates/index.html", exist=False) # Reload the page with the error message
+        return render_template("index.html", exist=False) # Reload the page with the error message
 
 @app.route("/Home", methods=['POST'])
 def Home():
-    return render_template("templates/index.html", exist=True)
+    return render_template("index.html", exist=True)
 
-def handler(event, why):
-    from werkzeug.middleware.proxy_fix import ProxyFix
-    from werkzeug.serving import run_simple
-    app.wsgi_app = ProxyFix(app.wsgi_app)
-    return app
+# def handler(event, why):
+#     from werkzeug.middleware.proxy_fix import ProxyFix
+#     from werkzeug.serving import run_simple
+#     app.wsgi_app = ProxyFix(app.wsgi_app)
+#     return app
 
 ###
