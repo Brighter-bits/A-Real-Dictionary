@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "api/Main.py": {
-      "runtime": "python"
+      "runtime": "python@3.12"
     }
   },
 
