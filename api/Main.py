@@ -91,10 +91,10 @@ def User_Search():
 def Home():
     return render_template("templates/index.html", exist=True)
 
-# def handler(event, why):
-#     from werkzeug.middleware.proxy_fix import ProxyFix
-#     from werkzeug.serving import run_simple
-#     app.wsgi_app = ProxyFix(app.wsgi_app)
-#     return app
+def handler(event, why):
+    from werkzeug.middleware.proxy_fix import ProxyFix
+    from werkzeug.serving import run_simple
+    app.wsgi_app = ProxyFix(app.wsgi_app)
+    return app
 
 ###
