@@ -1,4 +1,7 @@
 {
   "rewrites": [{ "source": "/(.*)", "destination": "/api/Main" }],
-  "functions": {"api/Main.py": {"includeFiles": "/templates/wordnet.zip"}}
+  "functions": {"api/Main.py": {"includeFiles": "/templates/wordnet.zip"}},
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" }
+  ]
 }
