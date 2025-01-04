@@ -1,4 +1,4 @@
 {
   "rewrites": [{ "source": "/(.*)", "destination": "/api/Main" }],
-  "functions": {"api/Main.py": {"includeFiles": "wordnet.zip"}}
+  "functions": {"api/Main.py": {"includeFiles": "/api/wordnet.zip"}}
 }
