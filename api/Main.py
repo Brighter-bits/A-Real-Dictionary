@@ -3,7 +3,6 @@ import nltk
 from nltk.corpus import wordnet as wn #This here is the module which will provide the many different definitions
 import re # This is just to clean up the dictionary modules formatting
 import json
-import os
 app = Flask("DictRD")
 # nltk.download("wordnet")
 try:
