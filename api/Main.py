@@ -17,7 +17,6 @@ def template():
 
 @app.route('/User_Search', methods=['POST']) # When the user_search action is taken
 def User_Search():
-    raise ValueError(os.listdir())
     word = str(request.form['input_word']) # Take the word input and convert it into a lowercase string
     Special = False # This is flagged when there is a special name/object to insert
     if "%" in word:
