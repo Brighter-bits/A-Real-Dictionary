@@ -5,7 +5,6 @@ import re # This is just to clean up the dictionary modules formatting
 import json
 app = Flask("DictRD")
 nltk.data.path.append("/")
-open("wordnet.zip", "r")
 try:
     with open("words.json", "r") as f:
         names = json.load(f) # Names or other definitions should be layed out as a JSON e.g {"W":"Waluigi", "BF": "A word used by Idiots"}
