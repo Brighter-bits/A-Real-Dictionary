@@ -6,6 +6,10 @@ import json
 import os
 app = Flask("DictRD")
 nltk.data.path.append("/")
+nltk.data.path.append("/static")
+nltk.data.path.append("/static/")
+nltk.data.path.append("static/")
+nltk.data.path.append("static")
 # nltk.download("wordnet")
 try:
     with open("words.json", "r") as f:
