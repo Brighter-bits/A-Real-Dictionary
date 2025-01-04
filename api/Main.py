@@ -12,7 +12,7 @@ except:print("No File")
 
 @app.route('/')
 def template():
-    return "test?" # Start off by going to the index page
+    return render_template("index.html", exist=True) # Start off by going to the index page
 
 @app.route('/User_Search', methods=['POST']) # When the user_search action is taken
 def User_Search():
