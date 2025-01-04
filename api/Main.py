@@ -84,8 +84,8 @@ def User_Search():
         print(meanings)
         return render_template("def.html", word=word, meanings=meanings, word_types=word_types) # Go to the definitions page
     except Exception as e:
-        return e
-        # return render_template("index.html", exist=False) # Reload the page with the error message
+        print(e)
+        return render_template("index.html", exist=False) # Reload the page with the error message
 
 @app.route("/Home", methods=['POST'])
 def Home():
