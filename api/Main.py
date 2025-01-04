@@ -3,8 +3,8 @@ import nltk
 from nltk.corpus import wordnet as wn #This here is the module which will provide the many different definitions
 import re # This is just to clean up the dictionary modules formatting
 import json
-nltk.data.path.append("/templates/")
 app = Flask("DictRD")
+nltk.data.path.append("/")
 try:
     with open("words.json", "r") as f:
         names = json.load(f) # Names or other definitions should be layed out as a JSON e.g {"W":"Waluigi", "BF": "A word used by Idiots"}
