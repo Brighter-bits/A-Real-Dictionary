@@ -1,7 +1,7 @@
 {
     "version": 2,
     "functions": {
-      "api/app.py": {
+      "api/Main.py": {
         "runtime": "vercel-python@latest"
       }
     }
