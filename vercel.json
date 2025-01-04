@@ -4,9 +4,5 @@
     "api/Main.py": {
       "runtime": "python@3.12.7"
     }
-  },
-
-  "routes": [
-    { "src": "/(.*)", "dest": "api/Main.py" }
-  ]
+  }
 }
