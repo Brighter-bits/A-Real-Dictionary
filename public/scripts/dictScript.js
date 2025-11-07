@@ -106,10 +106,6 @@ document.getElementById("output_container").addEventListener('click', function()
     document.getElementById("input_word").focus();
 })
 
-document.getElementById("Home").onclick = function(){
-    window.location.href = "index.html";
-}
-
 document.getElementById("Settings").onclick = function(){
     window.location.href = "dictSettings.html";
 }

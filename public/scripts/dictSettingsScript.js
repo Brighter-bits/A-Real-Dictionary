@@ -2,16 +2,15 @@ let counter = 0;
 let status = document.getElementById("status");
 function AddKeyValue(key="", val=""){
     status.innerText = "";
-    let div = document.createElement("div");
-    div.style = "padding-top: 10px; padding-bottom: 10px ;display: flex; height: 9px; align-items: center;"
-    div.innerHTML = `<input id = "firstbox${counter}" value = "${key}" type="text">
-                        <p style="margin: 10px;" ><strong>=</strong></p>
-                        <input id = "secondbox${counter}" value = "${val}" type="text">`;
+    let div = document.getElementById("form");
+    div.innerHTML += `<input id = "firstbox${counter}" style="height:15px; align:center" value = "${key}" type="text">
+                        <p style="text-align:center; margin:5px" ><strong>=</strong></p>
+                        <input id = "secondbox${counter}" style="height:15px; align:center" value = "${val}" type="text">`;
     counter++;
-    document.getElementById("form").insertBefore(div, document.getElementById("placeholder"));
+    document.getElementById("begin").appendChild(div);
 }
 document.getElementById("NewItem").onclick = function(){
-    AddKeyValue(); //I hate that my mind came up with this solution without even needing to search the internet for a solution. I have Javascript so much.
+    AddKeyValue(); //I hate that my mind came up with this solution without even needing to search the internet for a solution. I hate Javascript so much.
 }
 document.getElementById("form").onsubmit = function(event){
     event.preventDefault();

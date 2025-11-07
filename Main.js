@@ -2,7 +2,7 @@ var http = require('http');
 var file = require("fs");
 var url = require("url");
 var path = require("path");
-const PORT = 5999;
+const PORT = 8364;
 const PUBLIC = path.join(__dirname, "public");
 
 function Server(req, res){
@@ -25,9 +25,8 @@ function Server(req, res){
     if (!FileName.includes(".")){
         FileName += ".html";
     };
-
-    console.log(FileName.search(/dictionary/gi) != -1);
-    if (FileName.search(/dictionary/gi) != -1){
+    
+    if (FileName.search(/dictionary/g) >= 1){
         FileName = path.join(PUBLIC, "dictionary.html");
     };
     
