@@ -2,17 +2,32 @@ let counter = 0;
 let status = document.getElementById("status");
 function AddKeyValue(key="", val=""){
     status.innerText = "";
-    let div = document.getElementById("form");
-    div.innerHTML += `<input id = "firstbox${counter}" style="height:15px; align:center" value = "${key}" type="text">
-                        <p style="text-align:center; margin:5px" ><strong>=</strong></p>
-                        <input id = "secondbox${counter}" style="height:15px; align:center" value = "${val}" type="text">`;
+
+    let div = document.createElement("input");
+    div.id = `firstbox${counter}`;
+    div.style = "height:15px; align:center";
+    div.value = key;
+    div.type = "text";
+    document.getElementById("form").appendChild(div);
+
+    div = document.createElement("p");
+    div.innerHTML += `<strong>=</strong>`;
+    div.style = "text-align:center; margin:5px;";
+    document.getElementById("form").appendChild(div);
+
+    div = document.createElement("input");
+    div.id = `secondbox${counter}`;
+    div.style = "height:15x; align:center";
+    div.value = val;
+    div.type = "text";
+    document.getElementById("form").appendChild(div);
+
     counter++;
-    document.getElementById("begin").appendChild(div);
 }
 document.getElementById("NewItem").onclick = function(){
     AddKeyValue(); //I hate that my mind came up with this solution without even needing to search the internet for a solution. I hate Javascript so much.
 }
-document.getElementById("form").onsubmit = function(event){
+document.getElementById("Save").onclick = function(event){
     event.preventDefault();
     let settings = {};
     for(let i = 0; i < counter; i++){
