@@ -1,0 +1,79 @@
+<!-- templates/def.html -->
+<!DOCTYPE html>
+<html>
+    <script src="scripts/Test.js"></script>
+    <head>
+        <link rel="icon" href="Images/RD.png"/>
+        <link rel="stylesheet" href="CSS/dictButton.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dictionary</title>
+    </head>
+    <style>
+        .wordmiddle {
+            width: 50%;
+            position: relative;
+            left: 12.5%;
+            text-align: left;
+        }
+
+        .meaningmiddle {
+            width: 50%;
+            position: relative;
+            left: 15%;
+            text-align: left;
+        }
+
+        .meaningmiddle::first-letter {
+            text-transform: capitalize;
+        }
+
+        .rectangle{
+            background-color: blue;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <body>
+        <div class="rectangle" style="width: clamp(120px,4vw, 40px)"></div>
+        <div class="rectangle" style="width: 35vw; left: 65%"></div>
+        <button id = "Home" class="button"></button>
+        <h1 id = "head" class="wordmiddle" style="font-size:80px">{{ word }}</h1>
+            <div id = "Meanings"></div>
+    </body>
+
+    <script>
+        let defs = localStorage.getItem('Defs');
+        defs = JSON.parse(defs);
+        window.history.replaceState({}, "Definition", `dictionary/${defs["Name"]}`);
+        document.getElementById("head").innerHTML = defs["Name"];
+        const TypeOrder = ["Noun", "Verb", "Adjective", "Adverb", "Pronoun"];
+        for (type of TypeOrder){
+            try{
+                definitions = defs[type];
+                if (definitions.length == 0){
+                    continue;
+                }
+                heading = document.createElement("h2");
+                heading.innerHTML = type;
+                console.log(type);
+                heading.classList.add("wordmiddle");
+                document.getElementById("Meanings").appendChild(heading);
+                for (definition of definitions){
+                    let para = document.createElement("p");
+                    para.classList.add("meaningmiddle");
+                    para.innerHTML = definition;
+                    document.getElementById("Meanings").appendChild(para);
+                }
+            } catch{
+                continue;
+            }
+        }
+        document.getElementById("Home").addEventListener("click", function(){
+            localStorage.removeItem('Defs');
+            window.location.replace("/dictionary");
+        });
+    </script>
+</html>

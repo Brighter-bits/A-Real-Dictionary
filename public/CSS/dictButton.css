@@ -1,0 +1,10 @@
+.button{
+    position: relative;
+    padding: 20px;
+    background-image: url("../Images/Home-icon.png");
+    background-size: cover;
+    background-position: center; 
+    text-align: center;
+    color: transparent;
+    z-index: 1;
+}
