@@ -1,6 +1,8 @@
 # A Real dictionary
 A completely normal dictionary, which allows for inserting custom defintions into the definition list. There never was a more trusted dictionary.
 
+This version uses a Flask/Python backend and is unlikely to be updated in the future. For the newest features, see the NodeJS branch.
+
 # Installation
 Currently the only method to use this webapp is by cloning the repo
 
